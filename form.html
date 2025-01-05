@@ -95,15 +95,15 @@
           >
         </div>
         <div id="dynamicContainer">
-          <div class="d-flex align-items-center mb-3">
+          <div class="d-flex align-items-center mb-3 checkbox-area">
             <input
               type="checkbox"
-              id="value5"
+              id="name"
               class="checkbox"
-              name="value5"
-              value="value5"
+              name="name"
+              value="name"
             />
-            <label class="ml-2 d-flex" for="value5">
+            <label class="ml-2 d-flex" for="name">
               來賓姓名
               <div class="d-flex checkbox-group">
                 <input
@@ -162,7 +162,7 @@
     <script>
       function toggleCheckbox(checkbox) {
         // 找到父容器中包含 checkbox-option 的最近父層
-        const parent = checkbox.closest(".checkbox-group");
+        const parent = checkbox.closest(".checkbox-area");
         if (!parent) return;
 
         // 查找父容器內所有的 .checkbox-option
@@ -183,9 +183,11 @@
 
         // 儲存現有的輸入值和 checkbox 狀態
         const existingValues = Array.from(
-          container.querySelectorAll(".checkbox-group")
+          container.querySelectorAll(".checkbox-area")
         ).map((div) => ({
           textValue: div.querySelector("input[type='text']").value,
+          nameChecked:
+            div.querySelector("input[name^='name']")?.checked || false,
           msChecked: div.querySelector("input[name^='ms']")?.checked || false,
           mrChecked: div.querySelector("input[name^='mr']")?.checked || false,
         }));
@@ -196,22 +198,24 @@
         // 動態生成結構
         for (let i = 1; i <= count; i++) {
           const div = document.createElement("div");
-          div.className = "d-flex align-items-center mb-3";
+          div.className = "d-flex align-items-center mb-3 checkbox-area";
 
           // 獲取保存的值，或使用默認值
           const textValue = existingValues[i - 1]?.textValue || "";
+          const nameChecked = existingValues[i - 1]?.nameChecked || false;
           const msChecked = existingValues[i - 1]?.msChecked || false;
           const mrChecked = existingValues[i - 1]?.mrChecked || false;
 
           div.innerHTML = `
           <input
             type="checkbox"
-            id="value${i}"
+            id="name${i}"
             class="checkbox"
-            name="value${i}"
-            value="value${i}"
+            name="name${i}"
+            value="name${i}"
+            ${nameChecked ? "checked" : ""}
           />
-          <label class="ml-2 d-flex" for="value${i}">
+          <label class="ml-2 d-flex" for="name${i}">
             來賓姓名
             <div class="d-flex checkbox-group">
               <input
