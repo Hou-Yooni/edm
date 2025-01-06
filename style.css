@@ -65,9 +65,6 @@ body {
   margin: 0 10px 0 5px;
   height: 1px;
   background: white;
-  background-image: url("images/text-bg.png");
-  background-repeat: no-repeat;
-  background-position: center center;
 }
 
 .text-line-w {
@@ -75,9 +72,6 @@ body {
   margin: 0 4px 0 2px;
   height: 1px;
   background: white;
-  background-image: url("images/text-bg.png");
-  background-repeat: no-repeat;
-  background-position: center center;
 }
 .sub-title {
   font-size: 20px;
@@ -94,7 +88,7 @@ body {
   position: absolute;
   width: 1px;
   height: 25px;
-  background: #d4af37;
+  background: #ffffff;
   left: 0;
   top: 3px;
 }
@@ -103,11 +97,7 @@ body {
   left: auto;
 }
 .gold-text {
-  background-image: url("images/text-bg.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  color: transparent;
+  color: #ffffff;
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -123,10 +113,7 @@ body {
 }
 
 .divider {
-  background-image: url("images/text-bg.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background: #ffffff;
   height: 1px;
   bottom: 0;
   width: 55%;
